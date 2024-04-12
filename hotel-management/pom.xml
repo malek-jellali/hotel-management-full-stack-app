@@ -98,6 +98,11 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>9.0.63</version>
+        </dependency>
 
     </dependencies>
 

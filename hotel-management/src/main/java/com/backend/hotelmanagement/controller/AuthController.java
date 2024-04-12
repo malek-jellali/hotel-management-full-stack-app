@@ -1,10 +1,13 @@
 package com.backend.hotelmanagement.controller;
 
+import com.backend.hotelmanagement.Security.jwt.JwtUtils;
+import com.backend.hotelmanagement.Security.user.HotelUserDetails;
 import com.backend.hotelmanagement.exceptions.UserAlreadyExistsException;
+import com.backend.hotelmanagement.model.User;
+import com.backend.hotelmanagement.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.backend.hotelmanagement.request.LoginRequest;
+import com.backend.hotelmanagement.Response.JwtResponse;
 
 import java.util.List;
 
@@ -26,7 +31,7 @@ import java.util.List;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    private final IUserService userService;
+    private final UserService userService;
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtils;
 
