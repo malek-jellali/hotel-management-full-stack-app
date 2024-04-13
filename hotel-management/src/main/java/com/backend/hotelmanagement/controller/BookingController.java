@@ -50,8 +50,6 @@ public class BookingController {
     }
 
 
-
-
         @GetMapping("/room/{roomId}/booking")
         public ResponseEntity<?> saveBooking(@PathVariable Long roomId ,
                                              @RequestBody BookedRoom bookingRequest) {

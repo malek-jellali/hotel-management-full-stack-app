@@ -23,10 +23,6 @@ import com.backend.hotelmanagement.Response.JwtResponse;
 
 import java.util.List;
 
-
-/**
- * @author Simpson Alfred
- */
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
