@@ -1,0 +1,668 @@
+{
+	"info": {
+		"_postman_id": "77cb162d-b4e2-4c20-839e-331a398a9555",
+		"name": "hotel-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33869326"
+	},
+	"item": [
+		{
+			"name": "room",
+			"item": [
+				{
+					"name": "add a new room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMDAzNSwiZXhwIjoxNzEzMTIzNjM1fQ.0yYqwFp1vF8DaQy5PykAyeAX5-fnQINAOyopzgCLxIc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/home/malak/Desktop/gestion-hotel/photos/Screenshot from 2024-03-30 07-48-39.png"
+								},
+								{
+									"key": "roomType",
+									"value": "single-bedroom",
+									"type": "text"
+								},
+								{
+									"key": "roomPrice",
+									"value": "200",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9129/rooms/add/new-room",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9129",
+							"path": [
+								"rooms",
+								"add",
+								"new-room"
+							],
+							"query": [
+								{
+									"key": "photo",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get room types",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMDAzNSwiZXhwIjoxNzEzMTIzNjM1fQ.0yYqwFp1vF8DaQy5PykAyeAX5-fnQINAOyopzgCLxIc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9192/rooms/room/types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"rooms",
+								"room",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMDAzNSwiZXhwIjoxNzEzMTIzNjM1fQ.0yYqwFp1vF8DaQy5PykAyeAX5-fnQINAOyopzgCLxIc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9192/rooms/all-rooms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"rooms",
+								"all-rooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete room by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMDAzNSwiZXhwIjoxNzEzMTIzNjM1fQ.0yYqwFp1vF8DaQy5PykAyeAX5-fnQINAOyopzgCLxIc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9192/rooms/delete/room/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"rooms",
+								"delete",
+								"room",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update room credentials",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMjUxMSwiZXhwIjoxNzEzMTI2MTExfQ.td7DZba9ubzGN_lNOKHid9AqGBn9W-ZFkGYDLcaqDog",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "roomType",
+									"value": "single",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9192/rooms/update/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"rooms",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get room by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMDAzNSwiZXhwIjoxNzEzMTIzNjM1fQ.0yYqwFp1vF8DaQy5PykAyeAX5-fnQINAOyopzgCLxIc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9192/rooms/room/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"rooms",
+								"room",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get the available rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGVzIjpbXSwiaWF0IjoxNzEzMTIyNDA2LCJleHAiOjE3MTMxMjYwMDZ9.qDWezFJPB_v2tl2Egmz_-S_HYoL_SDKHiAaTrTBpKaY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9192/rooms/available-rooms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"rooms",
+								"available-rooms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\" : \"jellali\" , \n    \"lastName\":\"dalila\" , \n    \"email\": \"dalila@gmail.com\" , \n    \"password\": \"123\"  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9192/auth/register-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"auth",
+								"register-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" :\"dalila@gmail.com\" ,\n    \"password\":\"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9192/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login as admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9192/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"item": [
+				{
+					"name": "create new role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMzAwNiwiZXhwIjoxNzEzMTI2NjA2fQ.CtLkBUjEh9zFP-AuyxT6Dgy05c6KQwIvFgxvGRHVMUs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9192/roles/create-new-role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"roles",
+								"create-new-role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMzAwNiwiZXhwIjoxNzEzMTI2NjA2fQ.CtLkBUjEh9zFP-AuyxT6Dgy05c6KQwIvFgxvGRHVMUs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9192/roles/all-roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"roles",
+								"all-roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign user to role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMzIxOCwiZXhwIjoxNzEzMTI2ODE4fQ.aLZYDBiZ8XraoEsaColBpCVWb1q0qLnm9y0P7QDS3x8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9192/roles/assign-user-to-role?userId=6&roleId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"roles",
+								"assign-user-to-role"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "6"
+								},
+								{
+									"key": "roleId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove all users from role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMzIxOCwiZXhwIjoxNzEzMTI2ODE4fQ.aLZYDBiZ8XraoEsaColBpCVWb1q0qLnm9y0P7QDS3x8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9192/roles/delete/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"roles",
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove user from role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMzIxOCwiZXhwIjoxNzEzMTI2ODE4fQ.aLZYDBiZ8XraoEsaColBpCVWb1q0qLnm9y0P7QDS3x8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9192/roles/remove-user-from-role?userId=6&roleId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"roles",
+								"remove-user-from-role"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "6"
+								},
+								{
+									"key": "roleId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "get user by email",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYWxpbGFAZ21haWwuY29tIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3MTMxMjM0MjksImV4cCI6MTcxMzEyNzAyOX0.p6r-NweXG2GZh5KMPdeSC1fn_CWOXZNEkCoSeGx9lXY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9192/users/dalila@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"users",
+								"dalila@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYWxpbGFAZ21haWwuY29tIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3MTMxMjQxNzcsImV4cCI6MTcxMzEyNzc3N30.QwSEOIPlKfNV8_7Zd-2l955KNW_7_bo9BnQeE7czVx4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9192/users/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"users",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTcxMzEyMzQ4NCwiZXhwIjoxNzEzMTI3MDg0fQ.JawyoLNQZqzzdsK_QxBk59zGtZHmsxYQGuembGeVmeM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9192/users/delete/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9192",
+							"path": [
+								"users",
+								"delete",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
