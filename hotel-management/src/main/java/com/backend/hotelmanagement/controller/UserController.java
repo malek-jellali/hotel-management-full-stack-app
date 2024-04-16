@@ -19,39 +19,39 @@ import java.util.List;
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
-    /**
-     *
-     */
+
     private  UserService userService;
 
-    @GetMapping("/all")
-    public ResponseEntity<List<User>> getUsers(){
 
-        return new ResponseEntity<>(userService.getUsers(), HttpStatus.FOUND);
-    }
+        @GetMapping("/all")
+        @PreAuthorize("hasRole('ROLE_ADMIN')")
+        public ResponseEntity<List<User>> getUsers(){
 
-    @GetMapping("/{email}")
-
-    public ResponseEntity<?> getUserByEmail(@PathVariable("email") String email){
-        try{
-            User theUser = userService.getUser(email);
-            return ResponseEntity.ok(theUser);
-        }catch (UsernameNotFoundException e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching user");
+            return new ResponseEntity<>(userService.getUsers(), HttpStatus.FOUND);
         }
-    }
-    @DeleteMapping("/delete/{userId}")
 
-    public ResponseEntity<String> deleteUser(@PathVariable("userId") String email){
-        try{
-            userService.deleteUser(email);
-            return ResponseEntity.ok("User deleted successfully");
-        }catch (UsernameNotFoundException e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting user: " + e.getMessage());
+        @GetMapping("/{email}")
+        @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+        public ResponseEntity<?> getUserByEmail(@PathVariable("email") String email){
+            try{
+                User theUser = userService.getUser(email);
+                return ResponseEntity.ok(theUser);
+            }catch (UsernameNotFoundException e){
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            }catch (Exception e){
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching user");
+            }
         }
-    }
+        @DeleteMapping("/delete/{userId}")
+        @PreAuthorize("hasRole('ROLE_ADMIN') or (hasRole('ROLE_USER') and #email == principal.username)")
+        public ResponseEntity<String> deleteUser(@PathVariable("userId") String email){
+            try{
+                userService.deleteUser(email);
+                return ResponseEntity.ok("User deleted successfully");
+            }catch (UsernameNotFoundException e){
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            }catch (Exception e){
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting user: " + e.getMessage());
+            }
+        }
 }
